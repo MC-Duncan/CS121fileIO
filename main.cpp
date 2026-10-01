@@ -1,5 +1,5 @@
 #include <iostream>
-#include <ssstream>
+#include <sstream>
 #include <fstream>
 
 int main() {
@@ -14,26 +14,26 @@ int main() {
 
   std::string currentLine;
   
-  ifstream inFile;
+  std::ifstream inFile;
   
   inFile.open("data.csv");
 
-  while (getLine(inFile, currentLine)){
+  while (getline(inFile, currentLine)){
     ss.clear();
-    ss.string("");
+    ss.str("");
 
-    ss.string(currentLine);
-    getLine(ss, sIntA, ',');
-    getLine(ss, sIntB, ',');
-    getLine(ss, text);
+    ss.str(currentLine);
+    getline(ss, sIntA, ',');
+    getline(ss, sIntB, ',');
+    getline(ss, text);
 
     ss.clear();
-    ss.string("");
+    ss.str("");
     ss << sIntA << " " << sIntB;
     ss >> intA >> intB;
 
     int sum = intA + intB;
-    for (int i = 0, i < sum; i++){
+    for (int i = 0; i < sum; i++){
       std::cout << text << " ";
     } // end for
     std::cout << std::endl;
